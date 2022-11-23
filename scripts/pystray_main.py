@@ -13,7 +13,7 @@ def show_hide_console_window(icon, item):
 
 def launch_g_diffuser_cli(icon):
     print("Launching G-Diffuser CLI...")
-    subprocess.Popen(("python", "g_diffuser_cli.py"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
+    subprocess.Popen(("python", "g_diffuser_cli.py", "--interactive"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
     return
 
 def launch_g_diffuser_bot(icon):

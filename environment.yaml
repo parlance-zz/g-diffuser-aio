@@ -11,5 +11,8 @@ dependencies:
   - numpy 
   - opencv
   - pip:
+    - pystray
     - pygame
     - pyopengl
+    - discord
+    - aiohttp

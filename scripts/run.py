@@ -2,6 +2,9 @@ from os import path
 import subprocess, os, shutil, sys
 from dotenv import load_dotenv
 
+from threading import Thread
+import pystray_main
+
 def main():
     base=path.dirname(path.dirname(__file__))
 
@@ -21,8 +24,10 @@ def main():
 
     # Run server
 
-    os.environ["SD_HTTP_FILE_ROOT"] = path.join(base, "idea2art")
+    pystray_thread = Thread(target=pystray_main.start_pystray, daemon=True)
+    pystray_thread.start()
 
+    print("Starting Server...")
     from sdgrpcserver import server
     server.main()
     

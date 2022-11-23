@@ -1,6 +1,3 @@
 [submodule "stable-diffusion-grpcserver"]
 	path = stable-diffusion-grpcserver
 	url = https://github.com/hafriedlander/stable-diffusion-grpcserver.git
-[submodule "g-diffuser-bot"]
-	path = g-diffuser
-	url = https://github.com/parlance-zz/g-diffuser-bot.git

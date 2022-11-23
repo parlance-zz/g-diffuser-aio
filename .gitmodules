@@ -4,3 +4,4 @@
 [submodule "g-diffuser"]
 	path = g-diffuser
 	url = https://github.com/parlance-zz/g-diffuser-bot.git
+	branch = aio

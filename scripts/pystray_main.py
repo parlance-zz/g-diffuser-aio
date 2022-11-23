@@ -2,6 +2,7 @@ import subprocess
 import ctypes
 import pystray
 from PIL import Image
+import os
 
 CONSOLE_VISIBLE = True
 
@@ -29,7 +30,7 @@ def launch_g_diffuser_gui(icon):
 def close(icon):
     icon.stop()
     ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0) # hide some error barf
-    exit(0)
+    os._exit(0)
 
 def start_pystray():
     icon_img = Image.open("app_icon.ico")

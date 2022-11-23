@@ -17,3 +17,6 @@ AIO_BRANCH=main
 # Uncomment the line below if you have problems because of an interrupted model download
 # This can also happen if you run out of HDD space while downloading models
 # SD_REFRESH_MODELS=*
+
+# can prevent openMP from complaining about being statically linked and imported more than once
+KMP_DUPLICATE_LIB_OK=TRUE

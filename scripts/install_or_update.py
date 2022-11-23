@@ -9,6 +9,9 @@ def main():
     if not path.exists(path.join(base, "config")):
         shutil.copy(path.join(base, "config.dist"), path.join(base, "config"))
 
+    if not path.exists(path.join(base, "models.yaml")):
+        shutil.copy(path.join(base, "models.yaml.dist"), path.join(base, "models.yaml"))
+
     # Read the config
 
     repo = os.environ.get("AIO_REPO", "https://github.com/hafriedlander/idea2art-aio.git")

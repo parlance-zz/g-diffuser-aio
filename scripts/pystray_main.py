@@ -13,22 +13,23 @@ def show_hide_console_window(icon, item):
 
 def launch_g_diffuser_cli(icon):
     print("Launching G-Diffuser CLI...")
-    subprocess.run(("python", "g_diffuser_cli.py"), cwd="./g-diffuser")
+    subprocess.Popen(("python", "g_diffuser_cli.py"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
     return
 
 def launch_g_diffuser_bot(icon):
     print("Launching G-Diffuser Bot...")
-    subprocess.run(("python", "g_diffuser_bot.py"), cwd="./g-diffuser")
+    subprocess.Popen(("python", "g_diffuser_bot.py"), cwd="./g-diffuser",creationflags=subprocess.CREATE_NEW_CONSOLE)
     return
 
 def launch_g_diffuser_gui(icon):
     print("Launching G-Diffuser GUI...")
-    subprocess.run(("python", "g_diffuser_gui.py"), cwd="./g-diffuser")
+    subprocess.Popen(("python", "g_diffuser_gui.py"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
     return
 
 def close(icon):
     icon.stop()
-    return
+    ctypes.windll.user32.ShowWindow(ctypes.windll.kernel32.GetConsoleWindow(), 0) # hide some error barf
+    exit(0)
 
 def start_pystray():
     icon_img = Image.open("app_icon.ico")

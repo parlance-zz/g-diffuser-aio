@@ -1,2 +1,5 @@
 config
 env
+__pycache__/
+models.yaml
+run.cmd

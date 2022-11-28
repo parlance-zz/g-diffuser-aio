@@ -14,7 +14,7 @@ def show_hide_console_window(icon, item):
 
 def launch_g_diffuser_cli(icon):
     print("Launching G-Diffuser CLI...")
-    subprocess.Popen(("python", "g_diffuser_cli.py", "--interactive"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
+    subprocess.Popen(("python", "g_diffuser_cli.py"), cwd="./g-diffuser", creationflags=subprocess.CREATE_NEW_CONSOLE)
     return
 
 def launch_g_diffuser_bot(icon):
@@ -33,7 +33,7 @@ def close(icon):
     os._exit(0)
 
 def start_pystray():
-    icon_img = Image.open("app_icon.ico")
+    icon_img = Image.open("g-diffuser/app_icon.ico")
     icon_menu=pystray.Menu(
         pystray.MenuItem('Show Server Console', show_hide_console_window, checked=lambda item: CONSOLE_VISIBLE),
         pystray.MenuItem('Launch G-Diffuser CLI', launch_g_diffuser_cli),

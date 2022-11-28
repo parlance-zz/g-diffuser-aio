@@ -1,0 +1,33 @@
+# g-diffuser parameters
+DISCORD_BOT_TOKEN={your discord bot token}
+
+# sdgrpcserver parameters
+HF_API_TOKEN={your huggingface token}
+SD_NSFW_BEHAVIOUR=ignore
+SD_VRAM_OPTIMISATION_LEVEL=2
+SD_ENABLE_MPS=0
+SD_ENGINECFG=./models.yaml
+SD_GRPC_PORT=50051
+SD_HTTP_PORT=5000
+
+AIO_REPO=https://github.com/parlance-zz/g-diffuser-aio.git
+AIO_BRANCH=main
+
+# Uncomment the and use the line below if you wish to use a remote grpc server instead of starting a local one
+# You can use this in conjunction with the grpc server colab here: https://colab.research.google.com/drive/1Z_ImHgl2NSJjJCmy6IIbcsqu_PYiYzEn
+# SD_GRPC_HOST=remote_hostname_or_ip
+
+# Uncomment the line below if you have problems because of an interrupted model download
+# This can also happen if you run out of HDD space while downloading models
+# SD_REFRESH_MODELS=*
+
+# Uncomment the line below to enable access to the sdgrpcserver from anywhere on the local network
+# SD_LISTEN_TO_ALL=1
+
+# Uncomment the line below to use an alternate path for your automatically downloaded model files
+# The default path is C:\Users\YourProfileName\.cache, use this if you prefer to use another drive or partition
+# If you are using custom / user provided models, they need to be put in ./stable-diffusion-grpcserver/weights
+# SD_WEIGHT_ROOT=D:/my_downloads_path
+
+# prevents openMP from complaining about being statically linked and imported more than once
+KMP_DUPLICATE_LIB_OK=TRUE

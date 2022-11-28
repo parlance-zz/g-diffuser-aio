@@ -1,0 +1,33 @@
+# If an argument is unspecified, it will use the default value defined in the file
+
+# default model id to use, see models.yaml for the list of model ids to be loaded by grpc server
+# You can also use show_models() in the g-diffuser CLI to get a list of valid model ids
+
+model_name = "stable-diffusion-v1-5-clip"
+
+n_samples: 1           # number of samples to generate per sample command
+sampler: "dpmspp_2"    # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
+                       # for a complete list please use show_samplers() in the g-diffuser CLI
+cfg_scale: 14          # default cfg scale
+
+resolution:            # default output resolution (if an init_img is used the image resolution will be used instead)
+    width: 640
+    height: 480
+
+max_resolution:        # if you run out of ram due to output resolution lower this to prevent exceeding your max memory
+    width: 960         # if the desired output resolution exceeds the maximum, the resolution will be capped
+    height: 960        # but the aspect ratio will be preserved
+
+noise_start: = 0.65              # also known as "strength" for img2img
+noise_end = 0.01                 # advanced: controls the sampling noise schedule
+noise_eta = 0.70                 # advanced: controls the sampling noise schedule
+
+steps: 12                        # number of sampling steps, lower values reduce sampling time
+max_steps: 150
+
+auto_seed_range:      # automatic random seed range
+    low: 10000        # an automatic seed is used if no seed is provided in args
+    high: 99999       # auto-seeds automatically increment by 1 in the result args returned by sample()
+
+guidance_strength: 0.5             # default CLIP guidance strength (only affects 'CLIP guided' models)
+negative_prompt: ""                # default negative prompt string

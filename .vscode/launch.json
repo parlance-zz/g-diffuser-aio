@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name":"gRPC Server",
+            "type":"python",
+            "request": "launch",
+            "program": "stable-diffusion-grpcserver/server.py",
+            "args": [],
+            "envFile": "${workspaceFolder}/config"
+        },           
+        {
+            "name":"Interactive CLI",
+            "type":"python",
+            "request": "launch",
+            "program": "g-diffuser/g_diffuser_cli.py",
+            "args": [],
+            "envFile": "${workspaceFolder}/config"
+        },
+        {
+            "name":"Discord Bot",
+            "type":"python",
+            "request": "launch",
+            "program": "g-diffuser/g_diffuser_bot.py",
+            "args": [],
+            "envFile": "${workspaceFolder}/config"
+        },
+    ]
+}        

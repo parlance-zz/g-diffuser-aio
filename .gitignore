@@ -2,4 +2,6 @@ config
 env
 __pycache__/
 models.yaml
+defaults.yaml
 run.cmd
+*.log

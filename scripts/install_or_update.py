@@ -21,8 +21,8 @@ def main():
 
     # Create config if it doesn't exist
     
-    if not path.exists(path.join(base, "config")):
-        shutil.copy(path.join(base, "dist/config.dist"), path.join(base, "config"))
+    if not path.exists(path.join(base, "config.ini")):
+        shutil.copy(path.join(base, "dist/config.ini.dist"), path.join(base, "config.ini"))
     if not path.exists(path.join(base, "models.yaml")):
         shutil.copy(path.join(base, "dist/models.yaml.dist"), path.join(base, "models.yaml"))
     if not path.exists(path.join(base, "defaults.yaml")):

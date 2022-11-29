@@ -1,6 +1,6 @@
 from os import path
 import time
-import subprocess, os, shutil, sys
+import os, sys
 from dotenv import load_dotenv
 
 from threading import Thread
@@ -46,8 +46,8 @@ def main():
     host = os.environ.get("SD_GRPC_HOST", "localhost")
     port = os.environ.get("SD_GRPC_PORT", "50051")
 
-    if host.lower() not in ["localhost", "127.0.0.1", "0.0.0.0", "::1"]:
-        print("Using remote SD GRPC server: {0}:{1}".format(host, port))
+    if host.lower() != "localhost":
+        print("Using remote SD GRPC server: {0}".format(host))
         while True:
             time.sleep(2)
     else:

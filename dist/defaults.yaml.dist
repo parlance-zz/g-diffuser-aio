@@ -4,7 +4,7 @@
 # You can also use show_models() in the g-diffuser CLI to get a list of valid model ids
 model_name: "stable-diffusion-v1-5-clip-small"
 
-n_samples: 1           # number of samples to generate per sample command
+num_samples: 1         # number of samples to generate per sample command
 sampler: "dpmspp_2"    # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
 steps: 50              # number of sampling steps, lower values reduce sampling time

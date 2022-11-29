@@ -26,7 +26,7 @@ def main():
 
     # Load dotenv into environment
 
-    load_dotenv(path.join(base, "config"))
+    load_dotenv(path.join(base, "config.ini"))
     
     hfToken = os.environ.get('HF_API_TOKEN', '')
     if not hfToken or hfToken == '{your huggingface token}':
@@ -46,7 +46,7 @@ def main():
     host = os.environ.get("SD_GRPC_HOST", "localhost")
     port = os.environ.get("SD_GRPC_PORT", "50051")
 
-    if host.lower() != "localhost":
+    if host.lower() not in ["localhost", "127.0.0.1", "0.0.0.0", "::1"]:
         print("Using remote SD GRPC server: {0}:{1}".format(host, port))
         while True:
             time.sleep(2)

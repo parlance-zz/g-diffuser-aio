@@ -1,4 +1,5 @@
 config
+config.ini
 env
 __pycache__/
 models.yaml

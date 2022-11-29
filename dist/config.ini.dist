@@ -1,5 +1,8 @@
 # g-diffuser parameters
 DISCORD_BOT_TOKEN={your discord bot token}
+DISCORD_BOT_DEFAULT_OUTPUT_N=1
+DISCORD_BOT_MAX_OUTPUT_LIMIT=3
+DISCORD_BOT_MAX_STEPS_LIMIT=100
 
 # sdgrpcserver parameters
 HF_API_TOKEN={your huggingface token}

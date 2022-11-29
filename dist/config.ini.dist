@@ -18,12 +18,13 @@ AIO_REPO=https://github.com/parlance-zz/g-diffuser-aio.git
 AIO_BRANCH=dev
 
 # Uncomment the line below to to expose the GRPC-WEB endpoint on an https domain. It will automatically set
-# an access token if you don't provide one. Check the server console for the server key and access info.
+# an access key if you don't provide one. Check the server console for the key and access info.
 # SD_LOCALTUNNEL=1
 
-# Uncomment the and use the line below if you wish to use a remote grpc server instead of starting a local one
+# Uncomment and use the lines below if you wish to use a remote grpc server instead of starting a local one
 # You can use this in conjunction with the grpc server colab here: https://colab.research.google.com/drive/1Z_ImHgl2NSJjJCmy6IIbcsqu_PYiYzEn
-# SD_GRPC_HOST=remote_hostname_or_ip
+# SD_GRPC_HOST=my.remote.endpoint:443
+# SD_GRPC_KEY={your_key_here}
 
 # Uncomment the line below if you have problems because of an interrupted model download
 # This can also happen if you run out of HDD space while downloading models

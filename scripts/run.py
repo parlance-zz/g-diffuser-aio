@@ -20,7 +20,9 @@ class ServerLogger(object):
         return
     def write(self, message):
         self.terminal.write(message)
-        if self.log: self.log.write(message)
+        if self.log:
+            self.log.write(message)
+            self.log.flush()
         return
     def flush(self):
         if self.log: self.log.flush()

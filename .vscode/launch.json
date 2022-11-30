@@ -6,7 +6,7 @@
             "request": "launch",
             "program": "stable-diffusion-grpcserver/server.py",
             "args": [],
-            "envFile": "${workspaceFolder}/config"
+            "envFile": "${workspaceFolder}/config.ini"
         },           
         {
             "name":"Interactive CLI",
@@ -14,7 +14,7 @@
             "request": "launch",
             "program": "g-diffuser/g_diffuser_cli.py",
             "args": [],
-            "envFile": "${workspaceFolder}/config"
+            "envFile": "${workspaceFolder}/config.ini"
         },
         {
             "name":"Discord Bot",
@@ -22,7 +22,7 @@
             "request": "launch",
             "program": "g-diffuser/g_diffuser_bot.py",
             "args": [],
-            "envFile": "${workspaceFolder}/config"
+            "envFile": "${workspaceFolder}/config.ini"
         },
     ]
 }        

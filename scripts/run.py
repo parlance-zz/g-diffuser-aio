@@ -14,10 +14,16 @@ class ServerLogger(object):
         except:
             self.log = None
         return
-
+    def __del__(self):
+        sys.stdout = self.terminal
+        if self.log: self.log.close()
+        return
     def write(self, message):
         self.terminal.write(message)
         if self.log: self.log.write(message)
+        return
+    def flush(self):
+        if self.log: self.log.flush()
         return
 
 def main():

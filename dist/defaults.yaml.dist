@@ -21,8 +21,6 @@ max_resolution:        # if you run out of ram due to output resolution lower th
     height: 960        # but the aspect ratio will be preserved
 
 img2img_strength: 0.65 # how much to change the original image (note: in/out-painting automatically overrides this)
-start_schedule: 0.5    # advanced: controls the sampling noise schedule
-end_schedule: 0.01     # advanced: controls the sampling noise schedule
 
 auto_seed_range:       # automatic random seed range
     low: 10000         # an automatic seed is used if no seed is provided in args

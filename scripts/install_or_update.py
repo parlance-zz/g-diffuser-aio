@@ -5,7 +5,7 @@ class InstallOrUpdateLogger(object):
     def __init__(self, log_path):
         self.terminal = sys.stdout
         try:
-            self.log = open(log_path, "a")   # preserve log file instead of overwriting
+            self.log = open(log_path, "w")
         except:
             self.log = None
         return
@@ -42,7 +42,7 @@ def main():
     branch = os.environ.get("AIO_BRANCH", "main") 
 
     # We can't rely on dotenv existing yet, stdlib only
-    with open(path.join(base, "config"), "r") as config_file:
+    with open(path.join(base, "config.ini"), "r") as config_file:
         for line in config_file:
             repo_match = re.match(r'\s*AIO_REPO=(\S+)', line)
             branch_match = re.match(r'\s*AIO_BRANCH\s*=\s*(\S+)', line)

@@ -71,7 +71,7 @@ void main() async {
   
   File(p.join(root, "run.cmd")).writeAsStringSync("""
 @echo off
-start ${sdconda} run ${base_args.join(" ")} python ${p.join(root, 'scripts', 'run.py')}
+"${sdconda}" run "${base_args.join(" ")}" python "${p.join(root, 'scripts', 'run.py')}"
   """);
 
   print("Done");

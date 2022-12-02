@@ -36,25 +36,26 @@ def main():
 
     load_dotenv(path.join(base, "config.ini"))
     
-    hfToken = os.environ.get('HF_API_TOKEN', '')
-    if not hfToken or hfToken == '{your huggingface token}':
-        print("ERROR: You need to register an account on HuggingFace, create an API token, and save it into the 'config' file in this directory")
-        input("Press enter to exit")
-        sys.exit(-1)
-    if hfToken[0] == "{":
-        print("ERROR: Don't wrap your token with {} brackets.")
-        input("Press enter to exit")
-        sys.exit(-1)
+    host = os.environ.get("SD_GRPC_HOST", "localhost")
+    port = os.environ.get("SD_GRPC_PORT", "50051")
+
+    if host.lower() == "localhost": # only check for hf token if we are starting a local server
+        hfToken = os.environ.get('HF_API_TOKEN', '')
+        if not hfToken or hfToken == '{your huggingface token}':
+            print("ERROR: You need to register an account on HuggingFace, create an API token, and save it into the 'config' file in this directory")
+            input("Press enter to exit")
+            sys.exit(-1)
+        if hfToken[0] == "{":
+            print("ERROR: Don't wrap your token with {} brackets.")
+            input("Press enter to exit")
+            sys.exit(-1)
 
     # Run server
 
     pystray_thread = Thread(target=pystray_main.start_pystray, daemon=True)
     pystray_thread.start()
 
-    host = os.environ.get("SD_GRPC_HOST", "localhost")
-    port = os.environ.get("SD_GRPC_PORT", "50051")
-
-    if host.lower() != "localhost":
+    if host.lower() != "localhost": # don't start the server if we have a remote sdgrpc host
         print("Using remote SD GRPC server: {0}".format(host))
         while True:
             time.sleep(2)

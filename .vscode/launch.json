@@ -24,5 +24,13 @@
             "args": [],
             "envFile": "${workspaceFolder}/config.ini"
         },
+        {
+            "name":"G-Diffuser",
+            "type":"python",
+            "request": "launch",
+            "program": "scripts/run.py",
+            "args": [],
+            //"envFile": "${workspaceFolder}/config.ini"
+        },           
     ]
 }        

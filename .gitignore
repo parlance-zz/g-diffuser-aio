@@ -3,6 +3,11 @@ config.ini
 env
 __pycache__/
 models.yaml
+models.yaml.new
+models.yaml.old
 defaults.yaml
+defaults.yaml.new
+defaults.yaml.old
+stable-diffusion
 run.cmd
 *.log

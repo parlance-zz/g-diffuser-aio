@@ -25,6 +25,7 @@ AIO_BRANCH=dev
 # You can use this in conjunction with the grpc server colab here: https://colab.research.google.com/drive/1Z_ImHgl2NSJjJCmy6IIbcsqu_PYiYzEn
 # SD_GRPC_HOST=my.remote.endpoint:443
 # SD_GRPC_KEY={your_key_here}
+# SD_GRPC_WEB=1
 
 # Uncomment the line below if you have problems because of an interrupted model download
 # This can also happen if you run out of HDD space while downloading models

@@ -14,11 +14,11 @@ guidance_strength: 0.5 # default CLIP guidance strength (only affects 'CLIP guid
 negative_prompt: ""    # default negative prompt string
 
 default_resolution:    # default output resolution (if an init_img is used the image resolution will be used instead)
-    width: 640         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
-    height: 480
+    width: 512         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
+    height: 512
 max_resolution:        # if you run out of ram due to output resolution lower this to prevent exceeding your max memory
-    width: 960         # if the desired output resolution exceeds the maximum, the resolution will be capped,
-    height: 960        # but the aspect ratio will be preserved
+    width: 512         # if the desired output resolution exceeds the maximum, the resolution will be capped,
+    height: 512        # but the aspect ratio will be preserved
 
 img2img_strength: 0.65 # how much to change the original image (note: in/out-painting automatically overrides this)
 

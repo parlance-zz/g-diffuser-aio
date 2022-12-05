@@ -249,3 +249,26 @@
   local_model: "./stable-diffusion-v1-4"
   local_model_fp16: "./stable-diffusion-v1-4-fp16"
   use_auth_token: True
+
+# *** Stable Diffusion 2.0 Model ***
+
+- model_id: 'sd2'
+  model: 'stabilityai/stable-diffusion-2-base'
+
+- model_id: 'sd2-inpainting'
+  model: 'stabilityai/stable-diffusion-2-inpainting'
+  whitelist: ["unet", "text_encoder"]
+
+- id: "sd2"
+  enabled: False
+  visible: False
+  default: False
+  name: "Stable Diffusion 2"
+  description: "Stable Diffusion 2"
+  class: "UnifiedPipeline"
+  model: "@sd2"
+  overrides:
+    inpaint_unet:
+      model: "@sd2-inpainting/unet"
+    clip:
+      model: "@laion-clip-b"

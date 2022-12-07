@@ -5,32 +5,11 @@ from dotenv import load_dotenv
 
 from threading import Thread
 import pystray_main
-
-class ServerLogger(object):
-    def __init__(self, log_path):
-        self.terminal = sys.stdout
-        try:
-            self.log = open(log_path, "w") # overwrite log file on startup
-        except:
-            self.log = None
-        return
-    def __del__(self):
-        sys.stdout = self.terminal
-        if self.log: self.log.close()
-        return
-    def write(self, message):
-        self.terminal.write(message)
-        if self.log:
-            self.log.write(message)
-            self.log.flush()
-        return
-    def flush(self):
-        if self.log: self.log.flush()
-        return
+from install_or_update import SimpleLogger
 
 def main():
     base=path.dirname(path.dirname(__file__))
-    sys.stdout = ServerLogger(path.join(base, "run.log"))
+    logger = SimpleLogger(path.join(base, "run.log"))
 
     # Load dotenv into environment
 

@@ -1,31 +1,38 @@
 from os import path
 import os, sys, subprocess, os, shutil, re
 
-class InstallOrUpdateLogger(object):
-    def __init__(self, log_path):
-        self.terminal = sys.stdout
-        try:
-            self.log = open(log_path, "w")
-        except:
-            self.log = None
+class SimpleLogger(object):
+    def __init__(self, log_path, mode="a"):
+        try: self.log = open(log_path, mode)
+        except: return
+        # hijack stdout, stdin, stderr
+        sys.stdout = self
+        sys.stdin = self
+        sys.stderr = self
         return
     def __del__(self):
-        sys.stdout = self.terminal
+        # restore original stream values
+        sys.stdout = sys.__stdout__
+        sys.stdin = sys.__stdin__
+        sys.stderr = sys.__stderr__
         if self.log: self.log.close()
-        return
-    def write(self, message):
-        self.terminal.write(message)
-        if self.log:
-            self.log.write(message)
-            self.log.flush()
-        return
-    def flush(self):
-        if self.log: self.log.flush()
+    def write(self, data):
+        self.log.write(data)
+        self.log.flush()
+        sys.__stdout__.write(data)
+        sys.__stdout__.flush()
+    def readline(self):
+        s = sys.__stdin__.readline()
+        sys.__stdin__.flush()
+        self.log.write(s)
+        self.log.flush()
+        return s
+    def flush(foo):
         return
 
 def main():
     base=path.dirname(path.dirname(__file__))
-    sys.stdout = InstallOrUpdateLogger(path.join(base, "install_or_update.log"))
+    logger = SimpleLogger(path.join(base, "install_or_update.log"))
 
     # Create config if it doesn't exist
     

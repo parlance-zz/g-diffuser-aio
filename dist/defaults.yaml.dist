@@ -2,14 +2,15 @@
 
 # default model id to use, see models.yaml for the list of model ids to be loaded by grpc server
 # You can also use show_models() in the g-diffuser CLI to get a list of valid model ids
-model_name: "stable-diffusion-v1-5-clip-small"
+model_name: "stable-diffusion-v1-5-standard" # sd2.1 will be default once they released an updated
+									         # inpainting u-net
 
 num_samples: 1         # number of samples to generate per sample command
 sampler: "dpmspp_sde"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
 steps: 50              # number of sampling steps, lower values reduce sampling time
 max_steps: 150         # requested steps will be capped below this value                       
-cfg_scale: 10.         # default cfg scale
+cfg_scale: 10.         # default cfg scale, try using lower scales with sd2.x
 guidance_strength: 0.2 # default CLIP guidance strength (only affects 'CLIP guided' models)
 negative_prompt: ""    # default negative prompt string
 

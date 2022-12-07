@@ -29,6 +29,8 @@ class SimpleLogger(object):
         return s
     def flush(foo):
         return
+    def isatty(self): # required for stanza in sdgrpcserver, apparently
+        return True
 
 def main():
     base=path.dirname(path.dirname(__file__))

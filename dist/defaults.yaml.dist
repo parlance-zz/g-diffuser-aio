@@ -5,19 +5,19 @@
 model_name: "stable-diffusion-v1-5-clip-small"
 
 num_samples: 1         # number of samples to generate per sample command
-sampler: "dpmspp_2"    # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
+sampler: "dpmspp_sde"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
 steps: 50              # number of sampling steps, lower values reduce sampling time
 max_steps: 150         # requested steps will be capped below this value                       
-cfg_scale: 14          # default cfg scale
-guidance_strength: 0.5 # default CLIP guidance strength (only affects 'CLIP guided' models)
+cfg_scale: 10.         # default cfg scale
+guidance_strength: 0.2 # default CLIP guidance strength (only affects 'CLIP guided' models)
 negative_prompt: ""    # default negative prompt string
 
 default_resolution:    # default output resolution (if an init_img is used the image resolution will be used instead)
-    width: 512         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
+    width: 768         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
     height: 512
 max_resolution:        # if you run out of ram due to output resolution lower this to prevent exceeding your max memory
-    width: 512         # if the desired output resolution exceeds the maximum, the resolution will be capped,
+    width: 768         # if the desired output resolution exceeds the maximum, the resolution will be capped,
     height: 512        # but the aspect ratio will be preserved
 
 img2img_strength: 0.65 # how much to change the original image (note: in/out-painting automatically overrides this)
@@ -27,8 +27,8 @@ auto_seed_range:       # automatic random seed range
     high: 99999        # auto-seeds automatically increment by 1 in the result args returned by sample()
 
 expand_image:          # requires an input image; if the expand dimensions are non-zero the image canvas will be expanded
-    softness: 100      # in each direction (values are in % of the original image size) and filled with transparency
-    space: 15          # the transparency will be out-painted when sampling, with unmasked area preserved / unaltered
+    softness: 50       # in each direction (values are in % of the original image size) and filled with transparency
+    space: 10          # the transparency will be out-painted when sampling, with unmasked area preserved / unaltered
     top: 0             # softness controls how soft the resulting mask will be (higher values are softer)
     bottom: 0          # space controls how much of the outer edge of the source image to completely erase / ignore
     left: 0            # (this can be useful for outpainting images with a border, signature / watermark, or vignette)

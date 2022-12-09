@@ -9,10 +9,11 @@ dependencies:
   - flit
   - psutil
   - numpy 
-  - opencv
+  - mendo::opencv
   - pip:
     - pystray
     - pygame
     - pyopengl
     - discord
     - aiohttp
+    - opencv-contrib-python

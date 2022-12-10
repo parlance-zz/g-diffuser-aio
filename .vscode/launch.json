@@ -14,7 +14,6 @@
             "request": "launch",
             "program": "g-diffuser/g_diffuser_cli.py",
             "args": [],
-            "envFile": "${workspaceFolder}/config.ini"
         },
         {
             "name":"Discord Bot",
@@ -22,7 +21,6 @@
             "request": "launch",
             "program": "g-diffuser/g_diffuser_bot.py",
             "args": [],
-            "envFile": "${workspaceFolder}/config.ini"
         },
         {
             "name":"G-Diffuser",
@@ -30,7 +28,6 @@
             "request": "launch",
             "program": "scripts/run.py",
             "args": [],
-            //"envFile": "${workspaceFolder}/config.ini"
         },           
     ]
 }        

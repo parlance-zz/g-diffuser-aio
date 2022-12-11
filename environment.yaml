@@ -9,7 +9,7 @@ dependencies:
   - flit
   - psutil
   - numpy 
-  - mendo::opencv
+  - conda-forge::opencv
   - pip:
     - pystray
     - pygame
@@ -17,3 +17,4 @@ dependencies:
     - discord
     - aiohttp
     - opencv-contrib-python
+    - https://github.com/parlance-zz/g-diffuser-aio/releases/download/assets/xformers-0.0.14.dev0-cp310-cp310-win_amd64.whl

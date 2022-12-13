@@ -2,23 +2,25 @@
 
 # default model id to use, see models.yaml for the list of model ids to be loaded by grpc server
 # You can also use show_models() in the g-diffuser CLI to get a list of valid model ids
-model_name: "stable-diffusion-v1-5-standard"
+model_name: "stable-diffusion-v2-standard"
 
 num_samples: 1         # number of samples to generate per sample command
 sampler: "dpmspp_sde"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
-steps: 50              # number of sampling steps, lower values reduce sampling time
-max_steps: 150         # requested steps will be capped below this value                       
-cfg_scale: 10.         # default cfg scale, try using lower scales with sd2.x
-guidance_strength: 0.2 # default CLIP guidance strength (only affects 'CLIP guided' models)
+steps: 30              # number of sampling steps, lower values reduce sampling time
+cfg_scale: 4.5         # default cfg scale, try using lower scales with sd2.x
+guidance_strength: 0.  # default CLIP guidance strength (only affects 'CLIP guided' models)
 negative_prompt: ""    # default negative prompt string
 
 default_resolution:    # default output resolution (if an init_img is used the image resolution will be used instead)
-    width: 768         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
+    width: 512         # SD1.4/1.5 perform best at 512x512 but small deviations don't affect quality that much
     height: 512
 max_resolution:        # if you run out of ram due to output resolution lower this to prevent exceeding your max memory
-    width: 768         # if the desired output resolution exceeds the maximum, the resolution will be capped,
-    height: 512        # but the aspect ratio will be preserved
+    width: 960         # if the desired output resolution exceeds the maximum, the resolution will be capped,
+    height: 960        # but the aspect ratio will be preserved
+
+hires_fix: False       # enable to enlarge feature scales in the generated image to match a high resolution
+seamless_tiling: False # if enabled the generated image will be seamlessly tileable across the image edges
 
 img2img_strength: 0.65 # how much to change the original image (note: in/out-painting automatically overrides this)
 

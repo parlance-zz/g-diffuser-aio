@@ -41,7 +41,7 @@ AIO_BRANCH=dev
 # Uncomment the line below to use an alternate path for your automatically downloaded model files
 # The default path is C:\Users\YourProfileName\.cache, use this if you prefer to use another drive or partition
 # If you are using custom / user provided models, they need to be put in ./stable-diffusion-grpcserver/weights
-# SD_WEIGHT_ROOT=D:/my_downloads_path
+# HF_HOME=D:/my_downloads_path
 
 # prevents openMP from complaining about being statically linked and imported more than once
 KMP_DUPLICATE_LIB_OK=TRUE

@@ -5,7 +5,7 @@
 model_name: "stable-diffusion-v2-1-standard"
 
 num_samples: 1         # number of samples to generate per sample command
-sampler: "dpmspp_2s_ancestral"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
+sampler: "dpmspp_sde"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
 steps: 30              # number of sampling steps, lower values reduce sampling time
 cfg_scale: 4.5         # default cfg scale, try using lower scales with sd2.x

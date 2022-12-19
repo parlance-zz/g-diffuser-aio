@@ -7,7 +7,7 @@ model_name: "stable-diffusion-v2-1-standard"
 num_samples: 1         # number of samples to generate per sample command
 sampler: "dpmspp_sde"  # sampler algorithm (ddim, k_euler, k_euler_ancestral, etc.)
                        # for a complete list please use show_samplers() in the g-diffuser CLI
-steps: 30              # number of sampling steps, lower values reduce sampling time
+steps: 50              # number of sampling steps, lower values reduce sampling time
 cfg_scale: 4.5         # default cfg scale, try using lower scales with sd2.x
 guidance_strength: 0.  # default CLIP guidance strength (only affects 'CLIP guided' models)
 negative_prompt: ""    # default negative prompt string
@@ -29,7 +29,7 @@ auto_seed_range:       # automatic random seed range
     high: 99999        # auto-seeds automatically increment by 1 in the result args returned by sample()
 
 expand_image:          # requires an input image; if the expand dimensions are non-zero the image canvas will be expanded
-    softness: 50       # in each direction (values are in % of the original image size) and filled with transparency
+    softness: 25       # in each direction (values are in % of the original image size) and filled with transparency
     space: 10          # the transparency will be out-painted when sampling, with unmasked area preserved / unaltered
     top: 0             # softness controls how soft the resulting mask will be (higher values are softer)
     bottom: 0          # space controls how much of the outer edge of the source image to completely erase / ignore

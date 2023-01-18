@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ..
-./micromamba/micromamba-`uname` run python ./g-diffuser/g_diffuser_cli.py
+./micromamba/micromamba-`uname` -r ./env -n sd-grpc-server run python ./g-diffuser/g_diffuser_cli.py

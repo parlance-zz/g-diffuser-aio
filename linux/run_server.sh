@@ -1,3 +1,3 @@
 #!/bin/bash
 cd ..
-./micromamba/micromamba-`uname` run python ./scripts/run.py
+./micromamba/micromamba-`uname` -r ./env -n sd-grpc-server run python ./scripts/run.py

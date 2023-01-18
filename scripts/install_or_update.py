@@ -85,8 +85,9 @@ def main():
     results.append(subprocess.run(("python", "-m", "flit", "install", "--pth-file"), cwd=os.path.join(base, "stable-diffusion-grpcserver")))
 
     # Install xformers
-    xformers_url = "https://github.com/hafriedlander/xformers_builds/releases/download/xformers-f82722f-cp310-win64/xformers-0.0.15+f82722f.d20221217-cp310-cp310-win_amd64.whl"
-    subprocess.run(("pip", "install", xformers_url), cwd=base)
+    if os.name == "nt":
+        xformers_url = "https://github.com/hafriedlander/xformers_builds/releases/download/xformers-f82722f-cp310-win64/xformers-0.0.15+f82722f.d20221217-cp310-cp310-win_amd64.whl"
+        subprocess.run(("pip", "install", xformers_url), cwd=base)
 
     # Verify installation by checking all subprocess results
     error_occurred = False

@@ -4,8 +4,10 @@ import os, sys
 from dotenv import load_dotenv
 
 from threading import Thread
-import pystray_main
 from install_or_update import SimpleLogger
+
+if os.name == "nt":
+    import pystray_main
 
 def main():
     base=path.dirname(path.dirname(__file__))
@@ -31,8 +33,9 @@ def main():
 
     # Run server
 
-    pystray_thread = Thread(target=pystray_main.start_pystray, daemon=True)
-    pystray_thread.start()
+    if os.name == "nt":
+        pystray_thread = Thread(target=pystray_main.start_pystray, daemon=True)
+        pystray_thread.start()
 
     if host.lower() != "localhost": # don't start the server if we have a remote sdgrpc host
         print("Using remote SD GRPC server: {0}".format(host))
